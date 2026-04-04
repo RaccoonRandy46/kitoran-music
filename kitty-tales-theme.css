@@ -1,0 +1,9 @@
+:root {
+    --bg-color: rgb(18, 26, 43);
+    --bg-color-dark: rgb(7, 4, 17);
+    --font-color: rgb(208, 242, 255);
+    --accent: rgb(60, 110, 151);
+    --accent-dark: rgb(24, 47, 90);
+    --accent-bright: rgb(76, 175, 255);
+    --accent-brighter: rgb(137, 228, 255);
+}
