@@ -154,6 +154,7 @@ audio:hover, iframe:hover {
 
 audio {
     width: 50vw;
+    max-height: fit-content;
 }
 
 li.song {
