@@ -34,6 +34,7 @@ img:hover {
 }
 
 .back-btn {
+    z-index: 1000;
     position: fixed;
     top: 10px;
     left: 10px;
@@ -89,6 +90,11 @@ p {
     color: var(--accent-bright);
 }
 
+.lowlight {
+    color: var(--accent);
+    font-style: italic;
+}
+
 a {
     color: var(--accent-brighter);
     transition: color 1s ease, background-color 0.3s ease;
@@ -101,6 +107,7 @@ a:hover {
 
 li::marker {
     color: var(--accent);
+    font-size: 35px;
 }
 
 ol, ul {
@@ -108,25 +115,20 @@ ol, ul {
     margin-right: 100px;
 }
 
-ol li::marker {
-    font-size: 35px;
-}
-
 li h3, li p {
     text-align: left;
+    margin-left: 10px;
 }
 
 li h3 {
     padding-bottom: 0px;
     margin-bottom: 0px;
-    margin-left: 10px;
 }
 
 li p {
     padding-top: 0px;
     margin-top: 10px;
     margin-bottom: 60px;
-    margin-left: 10px;
 }
 
 audio, iframe, li img {
