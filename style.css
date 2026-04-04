@@ -170,7 +170,7 @@ li.hoverable::before {
     bottom: 0;
     left: 50%;
     width: 100vw;
-    transform: translateX(-100%) scaleY(0.9);
+    transform: translateX(-100%) scaleY(0.8);
     background: linear-gradient(to right, var(--accent-dark), rgba(0, 0, 0, 0));
     opacity: 0;
     transition: opacity 0.1s ease, transform 0.5s cubic-bezier(0, 0.5, 0.2, 1);
@@ -180,7 +180,7 @@ li.hoverable::before {
 
 li.hoverable:hover::before {
     opacity: 1;
-    transform: translateX(-60%) scaleY(1.2);
+    transform: translateX(-60%) scaleY(1.1);
 }
 
 /* MOBILE CHANGES */
