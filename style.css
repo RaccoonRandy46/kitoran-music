@@ -160,12 +160,8 @@ audio {
     height: fit-content;
 }
 
-li.song {
-    transition: background-color 0.3s ease;
-}
-
 li.song:hover {
-    background-color: var(--accent-dark);
+    background: linear-gradient(to right, var(--accent-dark), rgb(0, 0, 0, 0));
 }
 
 @keyframes h1-xoop {
