@@ -58,6 +58,7 @@ h1 {
     padding: 20px;
     margin: 0px;
     border-bottom: 5px solid var(--accent-bright);
+    text-shadow: 5px 5px var(--accent-dark);
 }
 
 h2, h3, p {
