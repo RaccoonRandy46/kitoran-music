@@ -160,14 +160,18 @@ audio {
     height: fit-content;
 }
 
-li.song {
+li.hoverable {
     position: relative;
 }
 
-li.song::before {
+li.hoverable::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
     background: linear-gradient(to right, var(--accent-dark), rgba(0, 0, 0, 0));
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -175,17 +179,8 @@ li.song::before {
     z-index: -1;
 }
 
-li.song:hover::before {
+li.hoverable:hover::before {
     opacity: 1;
-}
-
-@keyframes h1-xoop {
-    from {
-        color: var(--accent-bright);
-    }
-    to {
-        color: var(--accent-brighter);
-    }
 }
 
 /* MOBILE CHANGES */
