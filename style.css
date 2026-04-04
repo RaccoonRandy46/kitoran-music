@@ -160,8 +160,23 @@ audio {
     height: fit-content;
 }
 
-li.song:hover {
-    background: linear-gradient(to right, var(--accent-dark), rgb(0, 0, 0, 0));
+li.song {
+    position: relative;
+}
+
+li.song::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--accent-dark), rgba(0, 0, 0, 0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+li.song:hover::before {
+    opacity: 1;
 }
 
 @keyframes h1-xoop {
