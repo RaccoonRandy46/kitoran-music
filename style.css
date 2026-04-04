@@ -153,7 +153,7 @@ audio:hover, iframe:hover {
 }
 
 audio {
-    width: 50vw;
+    width: 75%;
     height: fit-content;
 }
 
@@ -172,4 +172,54 @@ li.song:hover {
     to {
         color: var(--accent-brighter);
     }
+}
+
+/* MOBILE CHANGES */
+@media (max-width: 780px) {
+
+    h1 {
+        font-size: 40px;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 30px;
+        padding-top: 20px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    ol li::marker {
+        font-size: 22px;
+    }
+
+    .narrow, h2, h3, p, ol, ul {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    audio, iframe {
+        width: 75%;
+    }
+
+    iframe {
+        height: auto;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .back-btn {
+        font-size: 100%;
+        padding: 6px;
+    }
+
 }
