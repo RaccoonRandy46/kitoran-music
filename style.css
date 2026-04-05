@@ -30,6 +30,11 @@ img {
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
+img.cover {
+    width: 400px;
+    max-width: 85vw;
+}
+
 img:hover {
     border: 5px solid var(--accent-bright);
     box-shadow: 0px 0px 50px var(--accent-dark);
@@ -165,6 +170,8 @@ audio, iframe, li img {
 
 li img {
     border: none;
+    width: 35vw;
+    max-width: 350px;
 }
 
 li img:hover {
@@ -177,14 +184,20 @@ audio, iframe {
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-audio:hover, iframe:hover {
-    border: 2px solid var(--accent-bright);
-    box-shadow: 0px 0px 50px var(--accent);
-}
-
 audio {
     width: 75%;
     height: fit-content;
+}
+
+iframe {
+    width: 75%;
+    max-width: 560px;
+    aspect-ratio: 560 / 315;
+}
+
+audio:hover, iframe:hover {
+    border: 2px solid var(--accent-bright);
+    box-shadow: 0px 0px 50px var(--accent);
 }
 
 li.hoverable {
@@ -249,14 +262,22 @@ li.hoverable:hover::before {
         height: auto;
     }
 
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
     .back-btn {
         font-size: 100%;
         padding: 6px;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .back-btn {
+        font-size: 85%;
+        padding: 4px;
+    }
+
+    h1 {
+        letter-spacing: normal;
     }
 
 }
