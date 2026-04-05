@@ -26,11 +26,17 @@ body {
 
 img {
     border: 5px solid var(--accent-dark);
-    transition: border 0.3s ease;
+    box-shadow: 0px 0px 50px var(--bg-color-dark);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 img:hover {
     border: 5px solid var(--accent-bright);
+    box-shadow: 0px 0px 50px var(--accent-dark);
+}
+
+.hoverable img:hover {
+    box-shadow: 0px 0px 50px var(--accent);
 }
 
 .back-btn {
@@ -40,17 +46,23 @@ img:hover {
     left: 10px;
     padding: 10px;
     margin: 10px;
+    border-radius: 30px;
+    border: 3px solid var(--bg-color-dark);
     font-size: 150%;
     font-style: italic;
     background-color: var(--accent-dark);
-    transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 20px var(--bg-color-dark);
+    transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .back-btn:hover {
     background-color: var(--accent-bright);
+    border: 3px solid var(--font-color);
+    box-shadow: 0px 0px 20px var(--accent-bright);
 }
 
 h1 {
+    animation: h1-xoop 0.75s infinite alternate ease-in-out;
     font-size: 80px;
     font-style: italic;
     background-color: var(--accent);
@@ -58,6 +70,18 @@ h1 {
     margin: 0px;
     border-bottom: 5px solid var(--accent-bright);
     text-shadow: 5px 5px var(--accent-dark);
+    border-radius: 30px;
+    letter-spacing: 3px;
+    box-shadow: 0px 0px 50px var(--accent);
+}
+
+@keyframes h1-xoop {
+    from {
+        box-shadow: 0px 0px 50px var(--accent);
+    }
+    to {
+        box-shadow: 0px 0px 50px var(--accent-dark);
+    }
 }
 
 h2, h3, p {
@@ -70,6 +94,7 @@ h2 {
     font-size: 50px;
     border-top: 5px solid var(--accent-dark);
     padding-top: 50px;
+    text-shadow: 0px 0px 20px var(--accent-dark);
 }
 
 h3 {
@@ -79,6 +104,7 @@ h3 {
 
 p {
     font-size: 25px;
+    line-height: 1.5;
 }
 
 .narrow {
@@ -147,11 +173,13 @@ li img:hover {
 
 audio, iframe {
     border: 2px solid var(--accent-dark);
-    transition: border 0.3s ease;
+    box-shadow: 0px 0px 50px rgb(0, 0, 0, 0);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 audio:hover, iframe:hover {
     border: 2px solid var(--accent-bright);
+    box-shadow: 0px 0px 50px var(--accent);
 }
 
 audio {
