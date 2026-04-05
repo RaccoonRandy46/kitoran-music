@@ -12,7 +12,7 @@
 html {
     background: linear-gradient(to bottom, var(--bg-color), var(--bg-color-dark));
     min-height: 100vh;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color-dark);
 }
 
 * {
