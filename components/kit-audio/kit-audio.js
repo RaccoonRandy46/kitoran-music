@@ -39,9 +39,10 @@ const html = `
 `;
 
 const templateCache = {
-    css: null,
     loaded: null
 };
+
+const sharedSheet = new CSSStyleSheet();
 
 async function loadAssets() {
 
@@ -53,7 +54,7 @@ async function loadAssets() {
             return res.text();
         })
         .then(css => {
-            templateCache.css = css;
+            sharedSheet.replaceSync(css);
         });
 
     return templateCache.loaded;
@@ -73,10 +74,8 @@ class KitAudio extends HTMLElement {
 
         await loadAssets();
 
-        this.shadowRoot.innerHTML = `
-            <style>${templateCache.css}</style>
-            ${html}
-        `;
+        this.shadowRoot.adoptedStyleSheets = [sharedSheet];
+        this.shadowRoot.innerHTML = html;
 
         this.setupPlayer();
 
