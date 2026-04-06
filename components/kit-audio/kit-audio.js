@@ -97,6 +97,9 @@ class KitAudio extends HTMLElement {
         const initialVolume = Number(this.getAttribute("volume") ?? 1);
         const skipAmount = Number(this.getAttribute("skip") ?? 10);
 
+        let hasPlayed = false;
+        let pendingSeek = 0;
+
         audio.preload = "auto";
         audio.src = src;
         audio.volume = Math.max(0, Math.min(1, initialVolume));
@@ -116,6 +119,21 @@ class KitAudio extends HTMLElement {
             seekBar.style.setProperty("--progress", `${percent}%`);
         };
 
+        const setCurrentTime = (time) => {
+            if (!hasPlayed) {
+                pendingSeek = time;
+                updateProgress(timeToPercent(time));
+                currentTimeEl.textContent = formatTime(time);
+                seekBar.value = timeToPercent(time);
+            }
+            else audio.currentTime = time;
+        }
+
+        const getCurrentTime = () => {
+            if (!hasPlayed) return pendingSeek;
+            return audio.currentTime;
+        }
+
         const updatePlayState = () => {
             const isPlaying = !audio.paused;
             playBtn.classList.toggle("is-playing", isPlaying);
@@ -124,7 +142,7 @@ class KitAudio extends HTMLElement {
 
         const resetPlayer = () => {
             audio.pause();
-            audio.currentTime = 0;
+            setCurrentTime(0);
             seekBar.value = 0;
             currentTimeEl.textContent = "0:00";
             durationEl.textContent = formatTime(audio.duration);
@@ -137,6 +155,11 @@ class KitAudio extends HTMLElement {
             return (percent / 100) * audio.duration;
         };
 
+        const timeToPercent = (time) => {
+            if (!Number.isFinite(audio.duration) || audio.duration <= 0) return 0;
+            return (time / audio.duration) * 100;
+        };
+
         playBtn.addEventListener("click", async () => {
             if (audio.paused) {
                 await audio.play();
@@ -146,12 +169,12 @@ class KitAudio extends HTMLElement {
         });
 
         backBtn.addEventListener("click", () => {
-            audio.currentTime = Math.max(0, audio.currentTime - skipAmount);
+            setCurrentTime(Math.max(0, getCurrentTime() - skipAmount));
         });
 
         forwardBtn.addEventListener("click", () => {
-            const maxTime = Number.isFinite(audio.duration) ? audio.duration : audio.currentTime + skipAmount;
-            audio.currentTime = Math.min(maxTime, audio.currentTime + skipAmount);
+            const maxTime = Number.isFinite(audio.duration) ? audio.duration : getCurrentTime() + skipAmount;
+            setCurrentTime(Math.min(maxTime, getCurrentTime() + skipAmount));
         });
 
         volumeBar.addEventListener("input", () => {
@@ -172,7 +195,7 @@ class KitAudio extends HTMLElement {
             const newTime = percentToTime(percent);
 
             stopAutoProgress = false;
-            audio.currentTime = newTime;
+            setCurrentTime(newTime);
             updateProgress(percent);
             currentTimeEl.textContent = formatTime(newTime);
         });
@@ -182,18 +205,23 @@ class KitAudio extends HTMLElement {
         });
 
         audio.addEventListener("timeupdate", () => {
-            currentTimeEl.textContent = formatTime(audio.currentTime);
+            currentTimeEl.textContent = formatTime(getCurrentTime());
             durationEl.textContent = formatTime(audio.duration);
 
             if (audio.duration) {
-                const percent = (audio.currentTime / audio.duration) * 100;
+                const percent = (getCurrentTime() / audio.duration) * 100;
                 if (stopAutoProgress) return;
                 seekBar.value = percent;
                 updateProgress(percent);
             }
         });
 
-        audio.addEventListener("play", updatePlayState);
+        audio.addEventListener("play", () => {
+            if (!hasPlayed) audio.currentTime = pendingSeek;
+            hasPlayed = true;
+            updatePlayState();
+        });
+
         audio.addEventListener("pause", updatePlayState);
 
         resetPlayer();
