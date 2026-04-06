@@ -47,7 +47,7 @@ async function loadAssets() {
 
     if (templateCache.loaded) return templateCache.loaded;
 
-    templateCache.loaded = fetch("/components/kit-audio/kit-audio.css")
+    templateCache.loaded = fetch("components/kit-audio/kit-audio.css")
         .then(res => {
             if (!res.ok) throw new Error("Failed to load kit-audio.css");
             return res.text();
