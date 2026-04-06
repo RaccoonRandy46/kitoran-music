@@ -89,8 +89,8 @@
 
 .volume-wrap .icon-mask {
     width: 20px;
-    mask: url("/components/kit-audio/icons/volume.png") no-repeat center / contain;
-    -webkit-mask: url("/components/kit-audio/icons/volume.png") no-repeat center / contain;
+    mask: url("components/kit-audio/icons/volume.png") no-repeat center / contain;
+    -webkit-mask: url("components/kit-audio/icons/volume.png") no-repeat center / contain;
 }
 
 .time {
@@ -124,13 +124,13 @@
 }
 
 .bw-btn .icon-mask {
-    mask: url("/components/kit-audio/icons/back.png") no-repeat center / contain;
-    -webkit-mask: url("/components/kit-audio/icons/back.png") no-repeat center / contain;
+    mask: url("components/kit-audio/icons/back.png") no-repeat center / contain;
+    -webkit-mask: url("components/kit-audio/icons/back.png") no-repeat center / contain;
 }
 
 .fw-btn .icon-mask {
-    mask: url("/components/kit-audio/icons/forward.png") no-repeat center / contain;
-    -webkit-mask: url("/components/kit-audio/icons/forward.png") no-repeat center / contain;
+    mask: url("components/kit-audio/icons/forward.png") no-repeat center / contain;
+    -webkit-mask: url("components/kit-audio/icons/forward.png") no-repeat center / contain;
 }
 
 .play-btn:hover, .skip-btn:hover {
