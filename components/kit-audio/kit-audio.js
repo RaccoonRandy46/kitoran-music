@@ -97,6 +97,7 @@ class KitAudio extends HTMLElement {
         const initialVolume = Number(this.getAttribute("volume") ?? 1);
         const skipAmount = Number(this.getAttribute("skip") ?? 10);
 
+        audio.preload = "auto";
         audio.src = src;
         audio.volume = Math.max(0, Math.min(1, initialVolume));
         volumeBar.value = audio.volume;
@@ -194,7 +195,6 @@ class KitAudio extends HTMLElement {
 
         audio.addEventListener("play", updatePlayState);
         audio.addEventListener("pause", updatePlayState);
-        audio.addEventListener("ended", resetPlayer);
 
         resetPlayer();
 
