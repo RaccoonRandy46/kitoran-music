@@ -13,7 +13,7 @@
     transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
-.audio-player:hover {
+.audio-player:hover, .audio-player.is-playing {
     border-color: var(--accent-bright, #888);
     box-shadow: 0 0 20px var(--accent, #666);
 }
@@ -26,7 +26,7 @@
 }
 
 .icon path {
-    fill: var(--accent-brighter, #fff);
+    fill: var(--accent-brighter);
 }
 
 .seek-bar,
@@ -150,6 +150,10 @@
 .play-btn.is-playing .icon-pause,
 .play-btn:not(.is-playing) .icon-play {
     display: block;
+}
+
+.icon path {
+    fill: var(--accent-brighter);
 }
 
 .volume-wrap {

@@ -83,6 +83,7 @@ class KitAudio extends HTMLElement {
 
     setupPlayer() {
 
+        const kitAudio = this.shadowRoot.querySelector(".audio-player");
         const audio = this.shadowRoot.querySelector(".js-audio");
         const playBtn = this.shadowRoot.querySelector(".play-btn");
         const backBtn = this.shadowRoot.querySelector(".bw-btn");
@@ -109,6 +110,7 @@ class KitAudio extends HTMLElement {
             return `${minutes}:${seconds}`;
         };
 
+        let stopAutoProgress = false;
         const updateProgress = (percent) => {
             seekBar.style.setProperty("--progress", `${percent}%`);
         };
@@ -116,6 +118,7 @@ class KitAudio extends HTMLElement {
         const updatePlayState = () => {
             const isPlaying = !audio.paused;
             playBtn.classList.toggle("is-playing", isPlaying);
+            kitAudio.classList.toggle("is-playing", isPlaying);
         };
 
         const resetPlayer = () => {
@@ -126,6 +129,11 @@ class KitAudio extends HTMLElement {
             durationEl.textContent = formatTime(audio.duration);
             updateProgress(0);
             updatePlayState();
+        };
+
+        const percentToTime = (percent) => {
+            if (!Number.isFinite(audio.duration) || audio.duration <= 0) return 0;
+            return (percent / 100) * audio.duration;
         };
 
         playBtn.addEventListener("click", async () => {
@@ -150,10 +158,22 @@ class KitAudio extends HTMLElement {
         });
 
         seekBar.addEventListener("input", () => {
-            if (!audio.duration) return;
+            stopAutoProgress = true;
             const percent = Number(seekBar.value);
-            audio.currentTime = (percent / 100) * audio.duration;
             updateProgress(percent);
+
+            const previewTime = percentToTime(percent);
+            currentTimeEl.textContent = formatTime(previewTime);
+        });
+
+        seekBar.addEventListener("change", () => {
+            const percent = Number(seekBar.value);
+            const newTime = percentToTime(percent);
+
+            stopAutoProgress = false;
+            audio.currentTime = newTime;
+            updateProgress(percent);
+            currentTimeEl.textContent = formatTime(newTime);
         });
 
         audio.addEventListener("loadedmetadata", () => {
@@ -166,6 +186,7 @@ class KitAudio extends HTMLElement {
 
             if (audio.duration) {
                 const percent = (audio.currentTime / audio.duration) * 100;
+                if (stopAutoProgress) return;
                 seekBar.value = percent;
                 updateProgress(percent);
             }
