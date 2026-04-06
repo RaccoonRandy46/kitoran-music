@@ -1,0 +1,202 @@
+.audio-player {
+    width: 75%;
+    padding: 14px;
+    margin-top: 10px;
+    border: 2px solid var(--accent-dark, #444);
+    border-radius: 100px;
+    background: var(--bg-color-dark, #111);
+    box-shadow: 0 0 20px var(--bg-color-dark, #111);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.audio-player:hover {
+    border-color: var(--accent-bright, #888);
+    box-shadow: 0 0 20px var(--accent, #666);
+}
+
+.controls-left,
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon path {
+    fill: var(--accent-brighter, #fff);
+}
+
+.seek-bar,
+.volume-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+}
+
+.seek-bar {
+    width: 100%;
+    height: 10px;
+
+    --progress: 0%;
+    --left-color: var(--accent-bright, #888);
+    --right-color: var(--accent-dark, #444);
+
+    background: linear-gradient(
+        to right,
+        var(--left-color) 0%,
+        var(--left-color) var(--progress),
+        var(--right-color) var(--progress),
+        var(--right-color) 100%
+    );
+
+    cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb, .volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-brighter, #fff);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.seek-bar::-moz-range-thumb, .volume-bar::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-brighter, #fff);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-bar::-webkit-slider-thumb, .volume-bar::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+}
+
+.volume-bar {
+    width: 5vw;
+    height: 7px;
+    background: var(--accent-dark, #444);
+    cursor: pointer;
+}
+
+.volume-wrap .icon-mask {
+    width: 20px;
+    mask: url("/components/kit-audio/icons/volume.png") no-repeat center / contain;
+    -webkit-mask: url("/components/kit-audio/icons/volume.png") no-repeat center / contain;
+}
+
+.time {
+    color: var(--accent, #aaa);
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.current-time {
+    color: var(--accent-bright, #ddd);
+}
+
+.play-btn, .skip-btn {
+    border: none;
+    border-radius: 999px;
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-dark, #444);
+    color: var(--accent-bright, #ddd);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    padding: 0;
+}
+
+.icon-mask {
+    width: 35px;
+    height: 35px;
+    background-color: var(--accent-brighter);
+}
+
+.bw-btn .icon-mask {
+    mask: url("/components/kit-audio/icons/back.png") no-repeat center / contain;
+    -webkit-mask: url("/components/kit-audio/icons/back.png") no-repeat center / contain;
+}
+
+.fw-btn .icon-mask {
+    mask: url("/components/kit-audio/icons/forward.png") no-repeat center / contain;
+    -webkit-mask: url("/components/kit-audio/icons/forward.png") no-repeat center / contain;
+}
+
+.play-btn:hover, .skip-btn:hover {
+    background: var(--accent, #666);
+}
+
+.icon-img {
+    width: 35px;
+}
+
+.play-btn .icon {
+    width: 24px;
+    height: 24px;
+    display: none;
+}
+
+.play-btn.is-playing .icon-pause,
+.play-btn:not(.is-playing) .icon-play {
+    display: block;
+}
+
+.volume-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* MOBILE CHANGES */
+@media (max-width: 780px) {
+
+    .play-btn, .skip-btn, .icon-mask {
+        width: 25px;
+        height: 25px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .volume-wrap {
+        display: none;
+    }
+
+    .controls-right {
+        justify-content: flex-end;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .skip-btn {
+        display: none;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .back-btn {
+        font-size: 85%;
+        padding: 4px;
+    }
+
+    h1 {
+        letter-spacing: normal;
+    }
+
+}
