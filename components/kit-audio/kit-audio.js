@@ -100,7 +100,7 @@ class KitAudio extends HTMLElement {
         let hasPlayed = false;
         let pendingSeek = 0;
 
-        audio.preload = "auto";
+        audio.preload = "metadata";
         audio.src = src;
         audio.volume = Math.max(0, Math.min(1, initialVolume));
         volumeBar.value = audio.volume;
