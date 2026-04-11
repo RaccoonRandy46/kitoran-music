@@ -12,8 +12,6 @@ const maxSize = 2;
 
 let rgb = null;
 
-let scroll = 0;
-
 let mouseX = 0;
 let mouseY = 0;
 
@@ -64,15 +62,15 @@ class Star {
         while (this.x > canvas.width) this.x -= canvas.width;
 
         let y = this.y;
-        y -= scroll * 0.15 * this.radius;
+        if (canvas.width > 780) y -= window.scrollY * 0.15 * this.radius;
         while (y < 0) y += canvas.height;
 
         let dx = Math.abs(mouseX - this.x);
         let dy = Math.abs(mouseY - y);
-        let dist = Math.sqrt(dx * dx + dy * dy);
+        let squareDist = dx * dx + dy * dy;
 
         let alpha = this.alpha
-        let mult = dist / 200;
+        let mult = squareDist / 10000;
         if (mult > 1) mult = 1;
         alpha *= mult;
 
@@ -136,10 +134,6 @@ window.addEventListener("resize", () => {
 
     createStars();
 
-});
-
-window.addEventListener("scroll", () => {
-    scroll = window.scrollY;
 });
 
 window.addEventListener("mousemove", (e) => {
