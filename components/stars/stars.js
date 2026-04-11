@@ -60,17 +60,14 @@ class Star {
 
     draw() {
 
-        let x = this.x;
-        let loopTime = (canvas.width / 500) * 60000;
-        let xMult = Date.now() % loopTime / loopTime;
-        x += canvas.width * xMult * this.radius;
-        while (x > canvas.width) x -= canvas.width;
+        this.x += canvas.width * 0.00015 * this.radius;
+        while (this.x > canvas.width) this.x -= canvas.width;
 
         let y = this.y;
         y -= scroll * 0.15 * this.radius;
         while (y < 0) y += canvas.height;
 
-        let dx = Math.abs(mouseX - x);
+        let dx = Math.abs(mouseX - this.x);
         let dy = Math.abs(mouseY - y);
         let dist = Math.sqrt(dx * dx + dy * dy);
 
@@ -80,7 +77,7 @@ class Star {
         alpha *= mult;
 
         ctx.beginPath();
-        ctx.arc(x, y, this.radius, 0, Math.PI * 2);
+        ctx.arc(this.x, y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${getRGB()}, ${alpha})`;
         ctx.fill();
 
@@ -90,10 +87,20 @@ class Star {
 
 function createStars() {
 
-    stars.length = 0;
+    let newStars = getStarCount() - stars.length;
+    if (newStars == 0) return;
 
-    for (let i = 0; i < getStarCount(); i++) {
-        stars.push(new Star());
+    if (newStars > 0) {
+        for (let i = 0; i < newStars; i++) {
+            stars.push(new Star());
+        }
+        return;
+    }
+
+    newStars *= -1;
+
+    for (let i = 0; i < newStars; i++) {
+        stars.pop();
     }
 
 }
@@ -116,8 +123,16 @@ animate();
 
 window.addEventListener("resize", () => {
 
+    let prevWidth = canvas.width;
+    let prevHeight = canvas.height;
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    for (let star of stars) {
+        star.x = canvas.width * (star.x / prevWidth);
+        star.y = canvas.height * (star.y / prevHeight);
+    }
 
     createStars();
 
