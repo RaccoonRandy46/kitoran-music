@@ -1,12 +1,12 @@
 :root {
     --font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    --bg-color: rgb(37, 22, 33);
-    --bg-color-dark: rgb(14, 6, 15);
+    --bg-color: rgb(31, 10, 25);
+    --bg-color-dark: rgb(10, 2, 10);
     --font-color: rgb(255, 217, 208);
-    --accent: rgb(150, 50, 63);
-    --accent-dark: rgb(90, 22, 54);
-    --accent-bright: rgb(255, 83, 106);
-    --accent-brighter: rgb(255, 133, 133);
+    --accent: rgb(148, 33, 67);
+    --accent-dark: rgb(104, 15, 64);
+    --accent-bright: rgb(255, 58, 100);
+    --accent-brighter: rgb(255, 122, 133);
 }
 
 html {
