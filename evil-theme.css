@@ -1,0 +1,26 @@
+:root {
+    --font: 'DejaVu Sans Mono', monospace;
+    --bg-color: rgb(11, 20, 22);
+    --bg-color-dark: rgb(1, 4, 8);
+    --font-color: rgb(198, 255, 243);
+    --accent: rgb(33, 148, 129);
+    --accent-dark: rgb(16, 75, 99);
+    --accent-bright: rgb(52, 255, 228);
+    --accent-brighter: rgb(146, 255, 250);
+}
+
+ul li.hoverable img.evil {
+    width: 100px;
+    height: 100px;
+    transition: width 0.5s ease, height 0.5s ease,  border 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul li.hoverable:hover {
+    filter: contrast(1.5) hue-rotate(40deg);
+}
+
+ul li.hoverable:hover img.evil {
+    width: 400px;
+    height: 50px;
+    filter: hue-rotate(-40deg);
+}
