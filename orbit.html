@@ -13,7 +13,7 @@
 
     <body>
 
-        <a class="back-btn" href="index.html#music">&lt;&lt; return</a>
+        <a class="back-btn" href="#">&lt;&lt; return</a>
 
         <h1>Orbit</h1>
 
@@ -30,49 +30,49 @@
 
         <ol>
 
-            <li class="hoverable">
+            <li class="hoverable" id="orbit1">
                 <h3>orbit1</h3>
                 <kit-audio src="assets/audio/orbit/orbit1.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> December 27th 2022</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="orbit2">
                 <h3>orbit2</h3>
                 <kit-audio src="assets/audio/orbit/orbit2.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> March 6th 2023</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="orbit3">
                 <h3>orbit3</h3>
                 <kit-audio src="assets/audio/orbit/orbit3.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> March 25th 2023</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="orbit4">
                 <h3>orbit4</h3>
                 <kit-audio src="assets/audio/orbit/orbit4.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> May 6th 2023</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="orbit5">
                 <h3>orbit5</h3>
                 <kit-audio src="assets/audio/orbit/orbit5.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> September 13th 2023</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="orbit6">
                 <h3>orbit6</h3>
                 <kit-audio src="assets/audio/orbit/orbit6.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> October 1st 2023</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="orbit7">
                 <h3>orbit7</h3>
                 <kit-audio src="assets/audio/orbit/orbit7.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> October 9th 2023</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="mega4">
                 <h3>MEGALOVANIA 4</h3>
                 <kit-audio src="assets/audio/orbit/mega4.mp3"></kit-audio>
                 <p>
@@ -84,7 +84,10 @@
         </ol>
 
         <canvas id="stars"></canvas>
+
+        <script src="components/core.js"></script>
         <script src="components/stars/stars.js"></script>
+        <script src="components/back-btn.js"></script>
 
         <script type="module" src="components/kit-audio/kit-audio.js"></script>
 

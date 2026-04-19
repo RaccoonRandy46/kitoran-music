@@ -168,6 +168,11 @@ ol, ul {
     margin-right: 100px;
 }
 
+ul.compact li p {
+    margin: 0px;
+    padding: 0px;
+}
+
 li h3, li p {
     text-align: left;
     margin-left: 10px;

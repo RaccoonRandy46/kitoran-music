@@ -13,7 +13,7 @@
 
     <body>
 
-        <a class="back-btn" href="index.html#music">&lt;&lt; return</a>
+        <a class="back-btn" href="#">&lt;&lt; return</a>
 
         <h1>Kitty Tales</h1>
 
@@ -30,44 +30,44 @@
 
         <ol>
 
-            <li class="hoverable">
+            <li class="hoverable" id="my_lifes_a_mess">
                 <h3>My Life's a Mess</h3>
                 <!-- YouTube music video embed, generated & copied from YouTube -->
                 <iframe src="https://www.youtube.com/embed/yAzhdriiql8?si=74yMwve_8eoRBXzW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <p><span class="highlight">Created:</span> January 18th 2024</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="final_mountain">
                 <h3>Final Mountain</h3>
                 <kit-audio src="assets/audio/kitty_tales/final_mountain.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> January 23rd 2024</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="death_to_the_easter_bunny">
                 <h3>Death to the Easter Bunny!</h3>
                 <kit-audio src="assets/audio/kitty_tales/death_to_the_easter_bunny.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> May 2nd 2024</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="terry">
                 <h3>Terry</h3>
                 <kit-audio src="assets/audio/kitty_tales/terry.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> May 8th 2024</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="stray">
                 <h3>Stray</h3>
                 <kit-audio src="assets/audio/kitty_tales/stray.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> May 14th 2024</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="animals_of_the_lake">
                 <h3>Animals of the Lake</h3>
                 <kit-audio src="assets/audio/kitty_tales/animals_of_the_lake.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> May 20th 2024</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="two_birds_of_three">
                 <h3>Two Birds of Three</h3>
                 <kit-audio src="assets/audio/kitty_tales/two_birds_of_three.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> May 31st 2024</p>
@@ -76,7 +76,10 @@
         </ol>
 
         <canvas id="stars"></canvas>
+
+        <script src="components/core.js"></script>
         <script src="components/stars/stars.js"></script>
+        <script src="components/back-btn.js"></script>
 
         <script type="module" src="components/kit-audio/kit-audio.js"></script>
 

@@ -13,7 +13,7 @@
 
     <body>
 
-        <a class="back-btn" href="index.html#music">&lt;&lt; return</a>
+        <a class="back-btn" href="#">&lt;&lt; return</a>
 
         <h1>fox!</h1>
 
@@ -30,43 +30,43 @@
 
         <ol>
 
-            <li class="hoverable">
+            <li class="hoverable" id="why_wolves_howl_at_the_moon">
                 <h3>why wolves howl at the moon</h3>
                 <kit-audio src="assets/audio/fox/why_wolves_howl_at_the_moon.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> December 15th 2024</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="moonlight_dreams">
                 <h3>moonlight dreams</h3>
                 <kit-audio src="assets/audio/fox/moonlight_dreams.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> January 3rd 2025</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="fox_on_saturn">
                 <h3>fox on saturn</h3>
                 <kit-audio src="assets/audio/fox/fox_on_saturn.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> February 11th 2025</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="ravens">
                 <h3>ravens</h3>
                 <kit-audio src="assets/audio/fox/ravens.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> February 16th 2025</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="grizzly_bro">
                 <h3>grizzly bro</h3>
                 <kit-audio src="assets/audio/fox/grizzly_bro.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> March 2nd 2025</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="chocolate_rabbit">
                 <h3>chocolate rabbit</h3>
                 <kit-audio src="assets/audio/fox/chocolate_rabbit.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> March 22nd 2025</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="baf">
                 <h3>baf</h3>
                 <kit-audio src="assets/audio/fox/baf.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> April 5th 2025</p>
@@ -75,7 +75,10 @@
         </ol>
 
         <canvas id="stars"></canvas>
+
+        <script src="components/core.js"></script>
         <script src="components/stars/stars.js"></script>
+        <script src="components/back-btn.js"></script>
 
         <script type="module" src="components/kit-audio/kit-audio.js"></script>
 

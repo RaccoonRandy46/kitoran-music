@@ -13,7 +13,7 @@
 
     <body>
 
-        <a class="back-btn" href="index.html#music">&lt;&lt; return</a>
+        <a class="back-btn" href="#">&lt;&lt; return</a>
 
         <h1>Real</h1>
 
@@ -30,49 +30,49 @@
 
         <ol>
 
-            <li class="hoverable">
+            <li class="hoverable" id="real1">
                 <h3>real1</h3>
                 <kit-audio src="assets/audio/real/real1.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> February 2nd 2020</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="real2">
                 <h3>real2</h3>
                 <kit-audio src="assets/audio/real/real2.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> February 10th 2020</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="real3">
                 <h3>real3</h3>
                 <kit-audio src="assets/audio/real/real3.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> February 14th 2020</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="real4">
                 <h3>real4</h3>
                 <kit-audio src="assets/audio/real/real4.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> March 28th 2020</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="real5">
                 <h3>real5</h3>
                 <kit-audio src="assets/audio/real/real5.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> April 23rd 2020</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="real6">
                 <h3>real6</h3>
                 <kit-audio src="assets/audio/real/real6.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> May 27th 2020</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="real7">
                 <h3>real7</h3>
                 <kit-audio src="assets/audio/real/real7.mp3"></kit-audio>
                 <p><span class="highlight">Created:</span> June 16th 2020</p>
             </li>
 
-            <li class="hoverable">
+            <li class="hoverable" id="mega">
                 <h3>MEGALOVANIA 2</h3>
                 <kit-audio src="assets/audio/real/mega.mp3"></kit-audio>
                 <p>
@@ -84,7 +84,10 @@
         </ol>
 
         <canvas id="stars"></canvas>
+
+        <script src="components/core.js"></script>
         <script src="components/stars/stars.js"></script>
+        <script src="components/back-btn.js"></script>
 
         <script type="module" src="components/kit-audio/kit-audio.js"></script>
 
